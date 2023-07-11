@@ -3,6 +3,7 @@ package team1.funddigging.presentation.controller;
 import team1.funddigging.application.dto.FundingDto;
 import team1.funddigging.application.service.FundingService;
 import team1.funddigging.domain.entity.Funding;
+import team1.funddigging.domain.entity.Funding_amount;
 import team1.funddigging.presentation.request.AddFundingRequest;
 //import team1.funddigging.presentation.request.ChangeFundingInfoRequest;
 import team1.funddigging.presentation.response.FundingInfoResponse;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import team1.funddigging.presentation.response.Funding_amountInfoResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,6 +47,13 @@ public class FundingController {
                 .map(FundingInfoResponse::from)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/funding/{funding_id}/amount")
+    public ResponseEntity<Funding_amountInfoResponse> getOneFunding_amount(@PathVariable Long funding_id) {
+
+        Funding_amount funding_amount = fundingService.getOneFunding_amount(funding_id);
+        return ResponseEntity.ok(Funding_amountInfoResponse.fromOneFunding_amount(funding_amount));
     }
 
 }

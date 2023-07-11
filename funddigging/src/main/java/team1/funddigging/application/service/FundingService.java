@@ -1,17 +1,12 @@
 package team1.funddigging.application.service;
 
 import team1.funddigging.application.dto.FundingDto;
-import team1.funddigging.domain.entity.Category;
-import team1.funddigging.domain.entity.Funding;
-import team1.funddigging.domain.entity.Room;
-import team1.funddigging.domain.entity.User;
-import team1.funddigging.domain.repository.CategoryRepository;
-import team1.funddigging.domain.repository.FundingRepository;
+import team1.funddigging.application.dto.Funding_amountDto;
+import team1.funddigging.domain.entity.*;
+import team1.funddigging.domain.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import team1.funddigging.domain.repository.RoomRepository;
-import team1.funddigging.domain.repository.UserRepository;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,6 +16,7 @@ import java.util.stream.Collectors;
 public class FundingService {
 
     private final FundingRepository fundingRepository;
+    private final Funding_amountRepository funding_amountRepository;
     private final CategoryRepository categoryRepository;
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;
@@ -33,7 +29,9 @@ public class FundingService {
         Room room = roomRepository.findById(room_id).orElseThrow(() -> new IllegalArgumentException("no such room"));
         User user = userRepository.findById(user_id).orElseThrow(() -> new IllegalArgumentException("no such user"));
 
+
         Funding newFunding = fundingRepository.save(Funding.toFunding(dto, room, user));
+        Funding_amount newFunding_amount = funding_amountRepository.save(Funding_amount.toFunding((Funding_amountDto.toFounding(newFunding))));
         return newFunding.getFunding_id();
     }
 
@@ -44,6 +42,12 @@ public class FundingService {
 
         Funding funding = fundingRepository.findById(funding_id).orElseThrow(() -> new IllegalArgumentException("no such funding"));
         return funding;
+    }
+
+    public Funding_amount getOneFunding_amount(Long funding_id){
+
+        Funding_amount funding_amount = funding_amountRepository.findById(funding_id).orElseThrow(() -> new IllegalArgumentException("no such funding_amount"));
+        return funding_amount;
     }
 
 
