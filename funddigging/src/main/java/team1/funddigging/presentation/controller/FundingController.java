@@ -23,17 +23,20 @@ public class FundingController {
     @Autowired
     private final FundingService fundingService;
 
-    @PostMapping("/funding")
-    public ResponseEntity<Long> save(@RequestBody AddFundingRequest request) {
-        Long savedId = fundingService.addFunding(FundingDto.toAdd(request));
+    @PostMapping("/funding/{user_id}")
+    public ResponseEntity<Long> save(@RequestBody AddFundingRequest request, @PathVariable Long room_id, @PathVariable Long user_id) {
+        Long savedId = fundingService.addFunding(FundingDto.toAdd(request), room_id, user_id);
         return ResponseEntity.ok(savedId);
     }
 
     @GetMapping("/funding/{funding_id}")
     public ResponseEntity<FundingInfoResponse> getOneFunding(@PathVariable Long funding_id) {
-        Funding room = fundingService.getOneFunding(funding_id);
-        return ResponseEntity.ok(FundingInfoResponse.from(room));
+
+        Funding funding = fundingService.getOneFunding(funding_id);
+        return ResponseEntity.ok(FundingInfoResponse.fromOneFunding(funding));
     }
+
+
 
     @GetMapping("/funding-list")
     public ResponseEntity<List<FundingInfoResponse>> getAllFundingList() {
@@ -43,4 +46,6 @@ public class FundingController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok(response);
     }
+
+
 }

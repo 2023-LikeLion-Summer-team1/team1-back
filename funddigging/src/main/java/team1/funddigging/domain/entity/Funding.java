@@ -1,12 +1,9 @@
 package team1.funddigging.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import team1.funddigging.application.dto.FundingDto;
 //import com.likelion.backend.domain.entity.common.BaseEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -29,27 +26,46 @@ public class Funding {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long funding_id;
 
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Room room_id;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User seller_user_id;
+
+
+    private String funding_title;
+
+    private String title_image;
+
     private Double goal_amount;
 
-    private Integer is_active;
-
-    private String created_date;
-
-    private String title;
+    private Double price;
 
     private String description;
 
-    private Double price;
+    private String funding_image;
+
+    private String funding_budget;
+
+    private String funding_schedule;
+
+    private String team_introduction;
+
+    private String created_date;
 
     private String start_date;
 
     private String end_date;
 
-    private String image;
-
     private Integer like_num;
 
-    private String funding_title;
+    private Integer is_active;
+
+
+
+
 
     /*
     @JsonIgnore
@@ -58,22 +74,35 @@ public class Funding {
     */
 
 
-    public static Funding toFunding(FundingDto dto) {
+
+    public static Funding toFunding(FundingDto dto, Room room, User user) {
+
+
 
         return Funding.builder()
+                .room_id(room)
+                .seller_user_id(user)
+                .funding_title(dto.getFunding_title())
+                .title_image(dto.getTitle_image())
                 .goal_amount(dto.getGoal_amount())
-                .is_active(dto.getIs_active())
-                .created_date(dto.getCreated_date())
-                .title(dto.getTitle())
-                .description(dto.getDescription())
                 .price(dto.getPrice())
+                .description(dto.getDescription())
+                .funding_image(dto.getFunding_image())
+                .funding_budget(dto.getFunding_budget())
+                .funding_schedule(dto.getFunding_schedule())
+                .team_introduction(dto.getTeam_introduction())
+                .created_date(dto.getCreated_date())
                 .start_date(dto.getStart_date())
                 .end_date(dto.getEnd_date())
-                .image(dto.getImage())
                 .like_num(dto.getLike_num())
-                .funding_title(dto.getFunding_title())
+                .is_active(dto.getIs_active())
                 .build();
+
+
     }
+
+
+
 
 
 }
