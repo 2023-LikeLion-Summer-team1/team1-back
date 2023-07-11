@@ -34,6 +34,10 @@ public class FundingInfoResponse {
     private Integer like_num;
     private Integer is_active;
 
+    private String seller_name;
+
+
+
 
     public static FundingInfoResponse fromOneFunding (Funding funding){
         return FundingInfoResponse.builder()
@@ -54,6 +58,7 @@ public class FundingInfoResponse {
                 .end_date(funding.getEnd_date())
                 .like_num(funding.getLike_num())
                 .is_active(funding.getIs_active())
+                .seller_name(funding.getSeller_user_id().getName())
                 .build();
     }
 
@@ -75,6 +80,7 @@ public class FundingInfoResponse {
                 .end_date(fundingDto.getEnd_date())
                 .like_num(fundingDto.getLike_num())
                 .is_active(fundingDto.getIs_active())
+                .seller_name(fundingDto.getSeller_user_id().getName())
                 .build();
     }
 

@@ -25,4 +25,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long User_id;
 
+    private String name;
+
 }

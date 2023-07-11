@@ -71,6 +71,8 @@ public class FundingDto {
     public static FundingDto from(Funding funding) {
         return FundingDto.builder()
                 .funding_id(funding.getFunding_id())
+                .room_id(funding.getRoom_id())
+                .seller_user_id(funding.getSeller_user_id())
                 .funding_title(funding.getFunding_title())
                 .title_image(funding.getTitle_image())
                 .goal_amount(funding.getGoal_amount())
