@@ -68,11 +68,7 @@ public class Funding {
 
 
 
-    /*
-    @JsonIgnore
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    private List<ReserveRecord> reservedRoomList = new ArrayList<>();
-    */
+
 
 
 

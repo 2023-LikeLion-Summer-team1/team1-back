@@ -7,6 +7,9 @@ import team1.funddigging.presentation.request.AddFundingRequest;
 //import team1.funddigging.presentation.request.ChangeRoomInfoRequest;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -55,6 +58,8 @@ public class FundingDto {
     private Double current_amount;
     private Integer backers_count;
     private Double progress;
+
+    private List<Funding> fundingList = new ArrayList<>();
 
     /*
 

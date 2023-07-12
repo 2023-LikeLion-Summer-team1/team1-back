@@ -32,8 +32,13 @@ public class FundingInfoResponse {
     private Integer is_active;
 
     private String seller_name;
+    private String seller_image;
+
 
     private String category_name;
+
+    private String host_name;
+    private String host_title_image;
 
     private Double current_amount;
     private Integer backers_count;
@@ -67,6 +72,9 @@ public class FundingInfoResponse {
                 .backers_count(funding.getBackers_count())
                 .current_amount(funding.getCurrent_amount())
                 .progress(funding.getProgress())
+                .seller_image(funding.getSeller_user_id().getUser_image())
+                .host_name(funding.getRoom_id().getHost_name())
+                .host_title_image(funding.getRoom_id().getTitle_image())
                 .build();
     }
 
@@ -95,6 +103,9 @@ public class FundingInfoResponse {
                 .backers_count(fundingDto.getBackers_count())
                 .current_amount(fundingDto.getCurrent_amount())
                 .progress(fundingDto.getProgress())
+                .seller_image(fundingDto.getSeller_user_id().getUser_image())
+                .host_name(fundingDto.getRoom_id().getHost_name())
+                .host_title_image(fundingDto.getRoom_id().getTitle_image())
                 .build();
     }
 

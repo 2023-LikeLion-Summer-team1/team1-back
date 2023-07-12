@@ -6,6 +6,9 @@ import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import team1.funddigging.application.dto.RoomDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -41,6 +44,16 @@ public class Room {
     private String title_image;
 
     private Integer follower;
+
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "room_id", cascade = CascadeType.ALL)
+    private List<Funding> fundingList = new ArrayList<>();
+
+
+
+
 
     public static Room toRoom(RoomDto dto, Member user, Category category) {
 
