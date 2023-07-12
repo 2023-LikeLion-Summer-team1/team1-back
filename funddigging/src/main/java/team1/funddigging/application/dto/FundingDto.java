@@ -118,6 +118,7 @@ public class FundingDto {
                 .created_date(request.getCreated_date())
                 .start_date(request.getStart_date())
                 .end_date(request.getEnd_date())
+                .budget_date(request.getBudget_date())
                 .like_num(0)
                 .is_active(0)
                 .backers_count(0)

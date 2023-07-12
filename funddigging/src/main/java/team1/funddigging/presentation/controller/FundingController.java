@@ -41,7 +41,6 @@ public class FundingController {
     public ResponseEntity<FundingInfoResponse> getOneFunding(@PathVariable Long funding_id) {
 
         Funding funding = fundingService.getOneFunding(funding_id);
-        Funding_amount funding_amount = funding_amountRepository.findById(funding.getFunding_id()).orElseThrow(() -> new IllegalArgumentException("no such funding_amount"));
 
 
         return ResponseEntity.ok(FundingInfoResponse.fromOneFunding(funding));
