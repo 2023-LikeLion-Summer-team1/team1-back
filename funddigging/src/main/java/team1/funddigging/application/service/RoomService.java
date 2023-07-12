@@ -38,6 +38,17 @@ public class RoomService {
     public Room getOneRoom(Long room_id){
 
         Room room = roomRepository.findById(room_id).orElseThrow(() -> new IllegalArgumentException("no such room"));
+        List<Funding> fundingList = fundingRepository.findAll();
+        List<Funding> fundingListInRoom = new ArrayList<>();
+
+        for(Funding f : fundingList){
+            if(f.getRoom_id().getRoom_id() == room_id){
+                fundingListInRoom.add(f);
+                System.out.println(f.getRoom_id());
+            }
+        }
+
+        room.setFundingList(fundingListInRoom);
         return room;
     }
 

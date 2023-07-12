@@ -59,7 +59,6 @@ public class FundingDto {
     private Integer backers_count;
     private Double progress;
 
-    private List<Funding> fundingList = new ArrayList<>();
 
     /*
 

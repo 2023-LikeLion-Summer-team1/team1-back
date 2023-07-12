@@ -9,6 +9,8 @@ import team1.funddigging.domain.entity.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,6 +31,7 @@ public class RoomInfoResponse {
     private String title_image;
     private Integer follower;
     private String category_name;
+    private List<Funding> fundingList = new ArrayList<>();
 
     public static RoomInfoResponse fromOneRoom (Room room){
         return RoomInfoResponse.builder()
@@ -41,6 +44,7 @@ public class RoomInfoResponse {
                 .title_image(room.getTitle_image())
                 .follower(room.getFollower())
                 .category_name(room.getCategory_id().getName())
+                .fundingList(room.getFundingList())
                 .build();
     }
 

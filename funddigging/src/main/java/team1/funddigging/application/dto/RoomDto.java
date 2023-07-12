@@ -2,11 +2,15 @@ package team1.funddigging.application.dto;
 
 
 import team1.funddigging.domain.entity.Category;
+import team1.funddigging.domain.entity.Funding;
 import team1.funddigging.domain.entity.Room;
 import team1.funddigging.domain.entity.Member;
 //import team1.funddigging.presentation.request.ChangeRoomInfoRequest;
 import lombok.*;
 import team1.funddigging.presentation.request.AddRoomRequest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -33,6 +37,8 @@ public class RoomDto {
     private String title_image;
 
     private Integer follower;
+
+    private List<Funding> fundingList = new ArrayList<>();
 
     public static RoomDto from(Room room) {
         return RoomDto.builder()

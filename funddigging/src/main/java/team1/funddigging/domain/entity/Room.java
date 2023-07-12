@@ -51,6 +51,10 @@ public class Room {
     @OneToMany(mappedBy = "room_id", cascade = CascadeType.ALL)
     private List<Funding> fundingList = new ArrayList<>();
 
+    public void setFundingList(List<Funding> fundingList) {
+        this.fundingList = fundingList;
+    }
+
 
 
 
