@@ -24,7 +24,7 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Room_id;
+    private Long room_id;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)

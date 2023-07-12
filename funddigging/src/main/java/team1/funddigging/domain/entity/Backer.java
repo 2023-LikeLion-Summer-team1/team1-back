@@ -35,8 +35,6 @@ public class Backer {
 
     public static Backer toBacker(BackerDto dto, Funding funding,  User user) {
 
-
-
         return Backer.builder()
                 .funding_id(funding)
                 .user_id(user)

@@ -36,4 +36,18 @@ public class RoomService {
         return newRoom.getRoom_id();
     }
 
+    @Transactional
+    public Room getOneRoom(Long room_id){
+
+        Room room = roomRepository.findById(room_id).orElseThrow(() -> new IllegalArgumentException("no such room"));
+        return room;
+    }
+
+    @Transactional
+    public List<RoomDto> getAllRoomList(){
+        List<Room> fundingList = roomRepository.findAll();
+
+        return fundingList.stream().map(RoomDto::from).collect(Collectors.toList());
+    }
+
 }

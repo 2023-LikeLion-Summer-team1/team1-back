@@ -21,11 +21,11 @@ import java.time.LocalDateTime;
 @Builder
 public class RoomDto {
 
-    private Long Room_id;
+    private Long room_id;
 
-    User host_user_id;
+    private User host_user_id;
 
-    Category category_id;
+    private Category category_id;
 
     private String host_name;
 
@@ -38,6 +38,20 @@ public class RoomDto {
     private String room_image;
 
     private Integer follower;
+
+    public static RoomDto from(Room room) {
+        return RoomDto.builder()
+                .room_id(room.getRoom_id())
+                .host_user_id(room.getHost_user_id())
+                .category_id(room.getCategory_id())
+                .host_name(room.getHost_name())
+                .host_email(room.getHost_email())
+                .room_name(room.getRoom_name())
+                .description(room.getDescription())
+                .room_image(room.getRoom_image())
+                .follower(room.getFollower())
+                .build();
+    }
 
     public static RoomDto toAdd(AddRoomRequest request) {
         return RoomDto.builder()
