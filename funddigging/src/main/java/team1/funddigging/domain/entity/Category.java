@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
+import team1.funddigging.application.dto.CategoryDto;
 
 @Entity
 @Getter
@@ -24,6 +25,7 @@ public class Category {
         private Long category_id;
 
         private String name;
+
 
 
 
