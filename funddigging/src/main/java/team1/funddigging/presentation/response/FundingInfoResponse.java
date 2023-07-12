@@ -14,7 +14,7 @@ public class FundingInfoResponse {
 
     private Long funding_id;
     //private User seller_user_id;
-    //private Room room_id;
+    private Long room_id;
     private String funding_title;
     private String title_image;
     private Double goal_amount;
@@ -45,7 +45,7 @@ public class FundingInfoResponse {
     public static FundingInfoResponse fromOneFunding (Funding funding){
         return FundingInfoResponse.builder()
                 .funding_id(funding.getFunding_id())
-                //.room_id(funding.getRoom_id())
+                .room_id(funding.getRoom_id().getRoom_id())
                 //.seller_user_id(funding.getSeller_user_id())
                 .funding_title(funding.getFunding_title())
                 .title_image(funding.getTitle_image())
@@ -74,6 +74,7 @@ public class FundingInfoResponse {
     public static FundingInfoResponse from (FundingDto fundingDto){
         return FundingInfoResponse.builder()
                 .funding_id(fundingDto.getFunding_id())
+                .room_id(fundingDto.getRoom_id().getRoom_id())
                 .funding_title(fundingDto.getFunding_title())
                 .title_image(fundingDto.getTitle_image())
                 .goal_amount(fundingDto.getGoal_amount())
