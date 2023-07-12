@@ -18,20 +18,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/room/{room_id}")
+@RequestMapping("/funding")
 @RequiredArgsConstructor
 public class FundingController {
 
     @Autowired
     private final FundingService fundingService;
 
-    @PostMapping("/funding/{user_id}")
+    @PostMapping("/{room_id}/{user_id}")
     public ResponseEntity<Long> save(@RequestBody AddFundingRequest request, @PathVariable Long room_id, @PathVariable Long user_id) {
         Long savedId = fundingService.addFunding(FundingDto.toAdd(request), room_id, user_id);
         return ResponseEntity.ok(savedId);
     }
 
-    @GetMapping("/funding/{funding_id}")
+    @GetMapping("/{funding_id}")
     public ResponseEntity<FundingInfoResponse> getOneFunding(@PathVariable Long funding_id) {
 
         Funding funding = fundingService.getOneFunding(funding_id);
@@ -40,7 +40,7 @@ public class FundingController {
 
 
 
-    @GetMapping("/funding-list")
+    @GetMapping("/funding-list/{room_id}")
     public ResponseEntity<List<FundingInfoResponse>> getAllFundingInRoomList(@PathVariable Long room_id) {
         List<FundingDto> roomDtoList = fundingService.getAllFundingInRoomList(room_id);
         List<FundingInfoResponse> response = roomDtoList.stream()
@@ -49,7 +49,7 @@ public class FundingController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/funding/{funding_id}/amount")
+    @GetMapping("amount/{funding_id}")
     public ResponseEntity<Funding_amountInfoResponse> getOneFunding_amount(@PathVariable Long funding_id) {
 
         Funding_amount funding_amount = fundingService.getOneFunding_amount(funding_id);
