@@ -1,19 +1,12 @@
 package team1.funddigging.application.dto;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
 import team1.funddigging.domain.entity.Category;
-import team1.funddigging.domain.entity.Funding;
 import team1.funddigging.domain.entity.Room;
-import team1.funddigging.domain.entity.User;
-import team1.funddigging.domain.repository.CategoryRepository;
-import team1.funddigging.presentation.request.AddFundingRequest;
+import team1.funddigging.domain.entity.Member;
 //import team1.funddigging.presentation.request.ChangeRoomInfoRequest;
 import lombok.*;
 import team1.funddigging.presentation.request.AddRoomRequest;
-
-import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -23,7 +16,7 @@ public class RoomDto {
 
     private Long room_id;
 
-    private User host_user_id;
+    private Member host_user_id;
 
     private Category category_id;
 

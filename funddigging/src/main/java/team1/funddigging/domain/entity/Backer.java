@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import team1.funddigging.application.dto.BackerDto;
-import team1.funddigging.application.dto.FundingDto;
 
 @Entity
 @Getter
@@ -27,13 +26,13 @@ public class Backer {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user_id;
+    private Member user_id;
 
     private Double contribution_amount;
 
     private Integer fund_num;
 
-    public static Backer toBacker(BackerDto dto, Funding funding,  User user) {
+    public static Backer toBacker(BackerDto dto, Funding funding,  Member user) {
 
         return Backer.builder()
                 .funding_id(funding)

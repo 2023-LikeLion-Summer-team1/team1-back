@@ -2,15 +2,11 @@ package team1.funddigging.application.service;
 
 
 import team1.funddigging.application.dto.BackerDto;
-import team1.funddigging.application.dto.FundingDto;
 import team1.funddigging.domain.entity.*;
 import team1.funddigging.domain.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +25,7 @@ public class BackerService {
 
         //Category category = categoryRepository.findById(dto.getCategory_id()).orElseThrow(() -> new IllegalArgumentException("no such Category"));
         Funding funding = fundingRepository.findById(funding_id).orElseThrow(() -> new IllegalArgumentException("no such funding_id"));
-        User user = userRepository.findById(user_id).orElseThrow(() -> new IllegalArgumentException("no such user"));
+        Member user = userRepository.findById(user_id).orElseThrow(() -> new IllegalArgumentException("no such user"));
 
 
 

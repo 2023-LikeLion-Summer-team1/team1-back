@@ -6,11 +6,6 @@ import team1.funddigging.application.dto.FundingDto;
 //import com.likelion.backend.domain.entity.common.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -32,7 +27,7 @@ public class Funding {
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
-    private User seller_user_id;
+    private Member seller_user_id;
 
 
     private String funding_title;
@@ -77,7 +72,7 @@ public class Funding {
 
 
 
-    public static Funding toFunding(FundingDto dto, Room room, User user) {
+    public static Funding toFunding(FundingDto dto, Room room, Member user) {
 
 
 

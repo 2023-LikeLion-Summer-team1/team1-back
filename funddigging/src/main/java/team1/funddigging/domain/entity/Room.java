@@ -1,16 +1,10 @@
 package team1.funddigging.domain.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import team1.funddigging.application.dto.FundingDto;
 //import com.likelion.backend.domain.entity.common.BaseEntity;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
-import org.hibernate.annotations.Where;
 import team1.funddigging.application.dto.RoomDto;
-
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -28,7 +22,7 @@ public class Room {
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
-    private User host_user_id;
+    private Member host_user_id;
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
@@ -48,7 +42,7 @@ public class Room {
 
     private Integer follower;
 
-    public static Room toRoom(RoomDto dto, User user, Category category) {
+    public static Room toRoom(RoomDto dto, Member user, Category category) {
 
 
 

@@ -1,17 +1,8 @@
 package team1.funddigging.application.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-import team1.funddigging.domain.entity.Category;
 import team1.funddigging.domain.entity.Funding;
-import team1.funddigging.domain.entity.Room;
-import team1.funddigging.domain.entity.User;
-import team1.funddigging.domain.repository.CategoryRepository;
-import team1.funddigging.presentation.request.AddFundingRequest;
 //import team1.funddigging.presentation.request.ChangeRoomInfoRequest;
 import lombok.*;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

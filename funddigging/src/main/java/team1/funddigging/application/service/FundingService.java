@@ -27,7 +27,7 @@ public class FundingService {
 
         //Category category = categoryRepository.findById(dto.getCategory_id()).orElseThrow(() -> new IllegalArgumentException("no such Category"));
         Room room = roomRepository.findById(room_id).orElseThrow(() -> new IllegalArgumentException("no such room"));
-        User user = userRepository.findById(user_id).orElseThrow(() -> new IllegalArgumentException("no such user"));
+        Member user = userRepository.findById(user_id).orElseThrow(() -> new IllegalArgumentException("no such user"));
 
 
         Funding newFunding = fundingRepository.save(Funding.toFunding(dto, room, user));
