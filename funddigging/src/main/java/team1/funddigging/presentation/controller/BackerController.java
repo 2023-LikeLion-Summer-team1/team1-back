@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/backer")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class BackerController {
 
     @Autowired

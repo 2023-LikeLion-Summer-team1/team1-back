@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/funding")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class FundingController {
 
     @Autowired

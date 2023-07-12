@@ -26,6 +26,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/room")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000")
 public class RoomController {
     @Autowired
     private final RoomService roomService;
