@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,9 +53,17 @@ public class FundingService {
 
 
     @Transactional
-    public List<FundingDto> getAllFundingList(){
-        List<Funding> roomList = fundingRepository.findAll();
-        return roomList.stream().map(FundingDto::from).collect(Collectors.toList());
+    public List<FundingDto> getAllFundingInRoomList(Long room_id){
+        List<Funding> fundingList = fundingRepository.findAll();
+        List<Funding> fundingListInRoom = new ArrayList<>();
+
+        for(Funding f : fundingList){
+            if(f.getRoom_id().getRoom_id() == room_id){
+                fundingListInRoom.add(f);
+            }
+        }
+
+        return fundingListInRoom.stream().map(FundingDto::from).collect(Collectors.toList());
     }
 
 

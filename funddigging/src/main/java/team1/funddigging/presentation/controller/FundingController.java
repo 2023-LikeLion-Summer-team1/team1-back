@@ -41,8 +41,8 @@ public class FundingController {
 
 
     @GetMapping("/funding-list")
-    public ResponseEntity<List<FundingInfoResponse>> getAllFundingList() {
-        List<FundingDto> roomDtoList = fundingService.getAllFundingList();
+    public ResponseEntity<List<FundingInfoResponse>> getAllFundingInRoomList(@PathVariable Long room_id) {
+        List<FundingDto> roomDtoList = fundingService.getAllFundingInRoomList(room_id);
         List<FundingInfoResponse> response = roomDtoList.stream()
                 .map(FundingInfoResponse::from)
                 .collect(Collectors.toList());
