@@ -1,9 +1,12 @@
 package team1.funddigging.presentation.controller;
 
 import team1.funddigging.application.dto.FundingDto;
+import team1.funddigging.application.dto.Funding_amountDto;
 import team1.funddigging.application.service.FundingService;
 import team1.funddigging.domain.entity.Funding;
 import team1.funddigging.domain.entity.Funding_amount;
+import team1.funddigging.domain.entity.Member;
+import team1.funddigging.domain.repository.Funding_amountRepository;
 import team1.funddigging.presentation.request.AddFundingRequest;
 //import team1.funddigging.presentation.request.ChangeFundingInfoRequest;
 import team1.funddigging.presentation.response.FundingInfoResponse;
@@ -26,6 +29,8 @@ public class FundingController {
     @Autowired
     private final FundingService fundingService;
 
+    private final Funding_amountRepository funding_amountRepository;
+
     @PostMapping("/{room_id}/{user_id}")
     public ResponseEntity<Long> save(@RequestBody AddFundingRequest request, @PathVariable Long room_id, @PathVariable Long user_id) {
         Long savedId = fundingService.addFunding(FundingDto.toAdd(request), room_id, user_id);
@@ -36,6 +41,9 @@ public class FundingController {
     public ResponseEntity<FundingInfoResponse> getOneFunding(@PathVariable Long funding_id) {
 
         Funding funding = fundingService.getOneFunding(funding_id);
+        Funding_amount funding_amount = funding_amountRepository.findById(funding.getFunding_id()).orElseThrow(() -> new IllegalArgumentException("no such funding_amount"));
+
+
         return ResponseEntity.ok(FundingInfoResponse.fromOneFunding(funding));
     }
 

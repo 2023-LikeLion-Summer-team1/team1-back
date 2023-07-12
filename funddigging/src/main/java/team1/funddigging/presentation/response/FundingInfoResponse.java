@@ -3,6 +3,7 @@ package team1.funddigging.presentation.response;
 import team1.funddigging.application.dto.FundingDto;
 import team1.funddigging.domain.entity.Funding;
 import lombok.*;
+import team1.funddigging.domain.entity.Funding_amount;
 
 @Getter
 @Setter
@@ -32,6 +33,12 @@ public class FundingInfoResponse {
 
     private String seller_name;
 
+    private String category_name;
+
+    private Double current_amount;
+    private Integer backers_count;
+    private Double progress;
+
 
 
 
@@ -56,6 +63,9 @@ public class FundingInfoResponse {
                 .like_num(funding.getLike_num())
                 .is_active(funding.getIs_active())
                 .seller_name(funding.getSeller_user_id().getName())
+                .backers_count(funding.getBackers_count())
+                .current_amount(funding.getCurrent_amount())
+                .progress(funding.getProgress())
                 .build();
     }
 
@@ -79,6 +89,9 @@ public class FundingInfoResponse {
                 .like_num(fundingDto.getLike_num())
                 .is_active(fundingDto.getIs_active())
                 .seller_name(fundingDto.getSeller_user_id().getName())
+                .backers_count(fundingDto.getBackers_count())
+                .current_amount(fundingDto.getCurrent_amount())
+                .progress(fundingDto.getProgress())
                 .build();
     }
 

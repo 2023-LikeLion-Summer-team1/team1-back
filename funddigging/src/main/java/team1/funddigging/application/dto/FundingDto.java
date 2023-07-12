@@ -50,6 +50,12 @@ public class FundingDto {
 
     private Integer is_active;
 
+    private String category_name;
+
+    private Double current_amount;
+    private Integer backers_count;
+    private Double progress;
+
     /*
 
     public static RoomDto from(ChangeRoomInfoRequest request) {
@@ -84,6 +90,9 @@ public class FundingDto {
                 .budget_date(funding.getBudget_date())
                 .like_num(funding.getLike_num())
                 .is_active(funding.getIs_active())
+                .backers_count(funding.getBackers_count())
+                .current_amount(funding.getCurrent_amount())
+                .progress(funding.getProgress())
                 .build();
     }
 
@@ -107,6 +116,9 @@ public class FundingDto {
                 .end_date(request.getEnd_date())
                 .like_num(0)
                 .is_active(0)
+                .backers_count(0)
+                .current_amount(0d)
+                .progress(0d)
                 .build();
     }
 

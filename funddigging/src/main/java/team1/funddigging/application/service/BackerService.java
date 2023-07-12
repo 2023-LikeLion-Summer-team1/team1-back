@@ -32,12 +32,12 @@ public class BackerService {
         dto.setContribution_amount(funding.getPrice()*dto.getFund_num());
         Backer newBacker = backerRepository.save(Backer.toBacker(dto, funding, user));
 
-        Funding_amount funding_amount = funding_amountRepository.findById(newBacker.getFunding_id().getFunding_id()).orElseThrow(() -> new IllegalArgumentException("no such room"));
-        funding_amount.setBackers_count( funding_amount.getBackers_count()+1);
-        funding_amount.setCurrent_amount(funding_amount.getCurrent_amount()+newBacker.getContribution_amount());
-        funding_amount.setProgress(funding_amount.getCurrent_amount()/funding.getGoal_amount()*100.0);
 
-        Funding_amount updatedFunding_amount = funding_amountRepository.save(funding_amount);
+        funding.setBackers_count( funding.getBackers_count()+1);
+        funding.setCurrent_amount(funding.getCurrent_amount()+newBacker.getContribution_amount());
+        funding.setProgress(funding.getCurrent_amount()/funding.getGoal_amount()*100.0);
+
+        Funding updatedFunding = fundingRepository.save(funding);
 
 
 

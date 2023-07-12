@@ -31,7 +31,6 @@ public class FundingService {
 
 
         Funding newFunding = fundingRepository.save(Funding.toFunding(dto, room, user));
-        Funding_amount newFunding_amount = funding_amountRepository.save(Funding_amount.toFunding((Funding_amountDto.toFounding(newFunding))));
         return newFunding.getFunding_id();
     }
 

@@ -60,6 +60,10 @@ public class Funding {
 
     private Integer is_active;
 
+    private Double current_amount;
+    private Integer backers_count;
+    private Double progress;
+
 
 
 
@@ -94,6 +98,9 @@ public class Funding {
                 .budget_date(dto.getBudget_date())
                 .like_num(dto.getLike_num())
                 .is_active(dto.getIs_active())
+                .backers_count(dto.getBackers_count())
+                .current_amount(dto.getCurrent_amount())
+                .progress(dto.getProgress())
                 .build();
 
 
