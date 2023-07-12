@@ -11,6 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AddBackerRequest {
 
-    private Double contribution_amount;
     private Integer fund_num;
 }

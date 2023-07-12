@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Where(clause = "deleted = false")
-@SQLDelete(sql = "UPDATE Room SET deleted = true WHERE funding_id = ?")
+@SQLDelete(sql = "UPDATE room SET deleted = true WHERE room_id = ?")
 public class Room {
 
     @Id
@@ -44,6 +44,8 @@ public class Room {
 
     private String room_image;
 
+    private String title_image;
+
     private Integer follower;
 
     public static Room toRoom(RoomDto dto, User user, Category category) {
@@ -58,6 +60,7 @@ public class Room {
                 .room_name(dto.getRoom_name())
                 .description(dto.getDescription())
                 .room_image(dto.getRoom_image())
+                .title_image(dto.getTitle_image())
                 .follower(dto.getFollower())
                 .build();
     }

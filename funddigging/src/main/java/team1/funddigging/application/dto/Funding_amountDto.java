@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Funding_amountDto {
 
-    private Long Funding_amount_id;
+    private Long funding_amount_id;
 
     private Funding funding_id;
 
@@ -28,11 +28,14 @@ public class Funding_amountDto {
 
     private Integer backers_count;
 
+    private Double progress;
+
     public static Funding_amountDto toFounding(Funding funding) {
         return Funding_amountDto.builder()
                 .funding_id(funding)
                 .current_amount(0D)
                 .backers_count(0)
+                .progress(0D)
                 .build();
     }
 }

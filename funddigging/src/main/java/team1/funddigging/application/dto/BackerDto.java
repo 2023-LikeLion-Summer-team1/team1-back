@@ -15,6 +15,7 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -33,7 +34,6 @@ public class BackerDto {
 
     public static BackerDto toAdd(AddBackerRequest request) {
         return BackerDto.builder()
-                .contribution_amount(request.getContribution_amount())
                 .fund_num(request.getFund_num())
                 .build();
     }

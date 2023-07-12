@@ -16,12 +16,12 @@ import org.hibernate.annotations.SQLDelete;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Where(clause = "deleted = false")
-@SQLDelete(sql = "UPDATE funding SET deleted = true WHERE funding_id = ?")
+@SQLDelete(sql = "UPDATE category SET deleted = true WHERE category_id = ?")
 public class Category {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long Category_id;
+        private Long category_id;
 
         private String name;
 

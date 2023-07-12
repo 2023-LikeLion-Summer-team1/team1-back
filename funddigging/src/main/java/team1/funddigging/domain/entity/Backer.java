@@ -14,7 +14,7 @@ import team1.funddigging.application.dto.FundingDto;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Where(clause = "deleted = false")
-@SQLDelete(sql = "UPDATE funding SET deleted = true WHERE funding_id = ?")
+@SQLDelete(sql = "UPDATE backer SET deleted = true WHERE backer_id = ?")
 public class Backer {
 
     @Id

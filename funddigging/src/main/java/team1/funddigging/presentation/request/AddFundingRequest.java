@@ -55,6 +55,8 @@ public class AddFundingRequest {
 
     private String end_date;
 
+    private String budget_date;
+
 
 
 

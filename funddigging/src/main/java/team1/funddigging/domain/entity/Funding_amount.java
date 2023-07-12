@@ -20,12 +20,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Where(clause = "deleted = false")
-@SQLDelete(sql = "UPDATE funding SET deleted = true WHERE funding_id = ?")
+@SQLDelete(sql = "UPDATE funding_amount SET deleted = true WHERE funding_amount_id = ?")
 public class Funding_amount {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Funding_amount_id;
+    private Long funding_amount_id;
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
@@ -34,6 +34,8 @@ public class Funding_amount {
     private Double current_amount;
 
     private Integer backers_count;
+
+    private Double progress;
 
 
     public static Funding_amount toFunding(Funding_amountDto dto) {
@@ -44,6 +46,7 @@ public class Funding_amount {
                 .funding_id(dto.getFunding_id())
                 .current_amount(dto.getCurrent_amount())
                 .backers_count(dto.getBackers_count())
+                .progress(dto.getProgress())
                 .build();
 
 

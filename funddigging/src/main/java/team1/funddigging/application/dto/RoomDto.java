@@ -37,6 +37,8 @@ public class RoomDto {
 
     private String room_image;
 
+    private String title_image;
+
     private Integer follower;
 
     public static RoomDto from(Room room) {
@@ -49,6 +51,7 @@ public class RoomDto {
                 .room_name(room.getRoom_name())
                 .description(room.getDescription())
                 .room_image(room.getRoom_image())
+                .title_image(room.getTitle_image())
                 .follower(room.getFollower())
                 .build();
     }
@@ -60,6 +63,7 @@ public class RoomDto {
                 .room_name(request.getRoom_name())
                 .description(request.getDescription())
                 .room_image(request.getRoom_image())
+                .title_image(request.getTitle_image())
                 .follower(0)
                 .build();
     }

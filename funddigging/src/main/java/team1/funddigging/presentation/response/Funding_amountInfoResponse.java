@@ -13,13 +13,17 @@ import java.time.LocalDateTime;
 @Builder
 public class Funding_amountInfoResponse {
 
+    private Long funding_amount_id;
     private Double current_amount;
     private Integer backers_count;
+    private Double progress;
 
     public static Funding_amountInfoResponse fromOneFunding_amount (Funding_amount funding_amount){
         return Funding_amountInfoResponse.builder()
+                .funding_amount_id(funding_amount.getFunding_amount_id())
                 .current_amount(funding_amount.getCurrent_amount())
                 .backers_count(funding_amount.getBackers_count())
+                .progress(funding_amount.getProgress())
                 .build();
     }
 }

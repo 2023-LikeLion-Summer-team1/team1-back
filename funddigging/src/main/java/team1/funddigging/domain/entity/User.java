@@ -19,12 +19,20 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 //@Where(clause = "deleted = false")
-@SQLDelete(sql = "UPDATE User SET deleted = true WHERE funding_id = ?")
+@SQLDelete(sql = "UPDATE user SET deleted = true WHERE user_id = ?")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long User_id;
+    private Long user_id;
 
     private String name;
+
+    private Boolean isHost;
+
+    private String email;
+
+    private String user_image;
+
+
 
 }

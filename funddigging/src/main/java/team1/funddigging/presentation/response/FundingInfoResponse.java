@@ -31,6 +31,7 @@ public class FundingInfoResponse {
     private String created_date;
     private String start_date;
     private String end_date;
+    private String budget_date;
     private Integer like_num;
     private Integer is_active;
 
@@ -56,6 +57,7 @@ public class FundingInfoResponse {
                 .created_date(funding.getCreated_date())
                 .start_date(funding.getStart_date())
                 .end_date(funding.getEnd_date())
+                .budget_date(funding.getBudget_date())
                 .like_num(funding.getLike_num())
                 .is_active(funding.getIs_active())
                 .seller_name(funding.getSeller_user_id().getName())
@@ -78,6 +80,7 @@ public class FundingInfoResponse {
                 .created_date(fundingDto.getCreated_date())
                 .start_date(fundingDto.getStart_date())
                 .end_date(fundingDto.getEnd_date())
+                .budget_date(fundingDto.getBudget_date())
                 .like_num(fundingDto.getLike_num())
                 .is_active(fundingDto.getIs_active())
                 .seller_name(fundingDto.getSeller_user_id().getName())

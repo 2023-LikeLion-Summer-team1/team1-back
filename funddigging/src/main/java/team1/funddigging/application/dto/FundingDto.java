@@ -50,6 +50,8 @@ public class FundingDto {
 
     private String end_date;
 
+    private String budget_date;
+
     private Integer like_num;
 
     private Integer is_active;
@@ -85,6 +87,7 @@ public class FundingDto {
                 .created_date(funding.getCreated_date())
                 .start_date(funding.getStart_date())
                 .end_date(funding.getEnd_date())
+                .budget_date(funding.getBudget_date())
                 .like_num(funding.getLike_num())
                 .is_active(funding.getIs_active())
                 .build();

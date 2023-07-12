@@ -27,4 +27,6 @@ public class AddRoomRequest {
 
     private String room_image;
 
+    private String title_image;
+
 }

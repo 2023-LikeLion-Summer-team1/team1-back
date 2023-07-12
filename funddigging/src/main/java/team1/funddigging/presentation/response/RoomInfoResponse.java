@@ -26,6 +26,7 @@ public class RoomInfoResponse {
     private String room_name;
     private String description;
     private String room_image;
+    private String title_image;
     private Integer follower;
     private String category_name;
 
@@ -37,6 +38,7 @@ public class RoomInfoResponse {
                 .room_name(room.getRoom_name())
                 .description(room.getDescription())
                 .room_image(room.getRoom_image())
+                .title_image(room.getTitle_image())
                 .follower(room.getFollower())
                 .category_name(room.getCategory_id().getName())
                 .build();
@@ -50,6 +52,7 @@ public class RoomInfoResponse {
                 .room_name(roomDto.getRoom_name())
                 .description(roomDto.getDescription())
                 .room_image(roomDto.getRoom_image())
+                .title_image(roomDto.getTitle_image())
                 .follower(roomDto.getFollower())
                 .category_name(roomDto.getCategory_id().getName())
                 .build();
