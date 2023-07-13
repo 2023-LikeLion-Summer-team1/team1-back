@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 public class RoomService {
 
     private final FundingRepository fundingRepository;
-    private final Funding_amountRepository funding_amountRepository;
     private final CategoryRepository categoryRepository;
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;

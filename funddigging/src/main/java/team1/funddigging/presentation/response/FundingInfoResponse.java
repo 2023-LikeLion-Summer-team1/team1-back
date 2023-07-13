@@ -3,12 +3,6 @@ package team1.funddigging.presentation.response;
 import team1.funddigging.application.dto.FundingDto;
 import team1.funddigging.domain.entity.Funding;
 import lombok.*;
-import team1.funddigging.domain.entity.Funding_amount;
-import team1.funddigging.domain.entity.Room;
-
-import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter

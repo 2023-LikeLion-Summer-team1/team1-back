@@ -3,7 +3,6 @@ package team1.funddigging.application.service;
 
 import team1.funddigging.application.dto.CategoryDto;
 import team1.funddigging.application.dto.FundingDto;
-import team1.funddigging.application.dto.Funding_amountDto;
 import team1.funddigging.application.dto.RoomDto;
 import team1.funddigging.domain.entity.*;
 import team1.funddigging.domain.repository.*;
@@ -19,7 +18,6 @@ import java.util.stream.Collectors;
 public class MainService {
 
     private final FundingRepository fundingRepository;
-    private final Funding_amountRepository funding_amountRepository;
     private final CategoryRepository categoryRepository;
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;
