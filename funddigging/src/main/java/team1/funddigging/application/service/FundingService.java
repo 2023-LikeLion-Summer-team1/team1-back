@@ -1,6 +1,7 @@
 package team1.funddigging.application.service;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 import team1.funddigging.application.dto.FundingDto;
 import team1.funddigging.domain.entity.*;
@@ -25,7 +26,6 @@ public class FundingService {
 
     @Transactional
     public Long addFunding(FundingDto dto, Long room_id, Long user_id){
-
 
         //Category category = categoryRepository.findById(dto.getCategory_id()).orElseThrow(() -> new IllegalArgumentException("no such Category"));
         Room room = roomRepository.findById(room_id).orElseThrow(() -> new IllegalArgumentException("no such room"));
