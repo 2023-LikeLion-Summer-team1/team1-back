@@ -1,8 +1,7 @@
-package team1.funddigging.domain.repository;
+package team1.funddigging.domain.repository
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import team1.funddigging.domain.entity.Member;
-
-
-public interface UserRepository extends JpaRepository<Member, Long> {
+import ...
+public interface UserRepository extends JpaRepository <User, Long> {
+    @Query("select r from User r where r.accessToken = :token")
+    User findByUserToken(String token);
 }
