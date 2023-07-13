@@ -1,12 +1,8 @@
 package team1.funddigging.presentation.controller;
 
 import team1.funddigging.application.dto.FundingDto;
-import team1.funddigging.application.dto.Funding_amountDto;
 import team1.funddigging.application.service.FundingService;
 import team1.funddigging.domain.entity.Funding;
-import team1.funddigging.domain.entity.Funding_amount;
-import team1.funddigging.domain.entity.Member;
-import team1.funddigging.domain.repository.Funding_amountRepository;
 import team1.funddigging.presentation.request.AddFundingRequest;
 //import team1.funddigging.presentation.request.ChangeFundingInfoRequest;
 import team1.funddigging.presentation.response.FundingInfoResponse;
@@ -15,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import team1.funddigging.presentation.response.Funding_amountInfoResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +24,6 @@ public class FundingController {
     @Autowired
     private final FundingService fundingService;
 
-    private final Funding_amountRepository funding_amountRepository;
 
     @PostMapping("/{room_id}/{user_id}")
     public ResponseEntity<Long> save(@RequestBody AddFundingRequest request, @PathVariable Long room_id, @PathVariable Long user_id) {
@@ -55,13 +49,6 @@ public class FundingController {
                 .map(FundingInfoResponse::from)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(response);
-    }
-
-    @GetMapping("amount/{funding_id}")
-    public ResponseEntity<Funding_amountInfoResponse> getOneFunding_amount(@PathVariable Long funding_id) {
-
-        Funding_amount funding_amount = fundingService.getOneFunding_amount(funding_id);
-        return ResponseEntity.ok(Funding_amountInfoResponse.fromOneFunding_amount(funding_amount));
     }
 
 }

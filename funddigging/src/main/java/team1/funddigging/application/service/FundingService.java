@@ -1,13 +1,16 @@
 package team1.funddigging.application.service;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 import team1.funddigging.application.dto.FundingDto;
-import team1.funddigging.application.dto.Funding_amountDto;
 import team1.funddigging.domain.entity.*;
 import team1.funddigging.domain.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -16,7 +19,6 @@ import java.util.stream.Collectors;
 public class FundingService {
 
     private final FundingRepository fundingRepository;
-    private final Funding_amountRepository funding_amountRepository;
     private final CategoryRepository categoryRepository;
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;
@@ -41,12 +43,7 @@ public class FundingService {
 
         Funding funding = fundingRepository.findById(funding_id).orElseThrow(() -> new IllegalArgumentException("no such funding"));
         return funding;
-    }
 
-    public Funding_amount getOneFunding_amount(Long funding_id){
-
-        Funding_amount funding_amount = funding_amountRepository.findById(funding_id).orElseThrow(() -> new IllegalArgumentException("no such funding_amount"));
-        return funding_amount;
     }
 
 

@@ -38,14 +38,18 @@ public class Funding {
 
     private Double price;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     private String funding_image;
 
+    @Column(columnDefinition = "TEXT")
     private String funding_budget;
 
+    @Column(columnDefinition = "TEXT")
     private String funding_schedule;
 
+    @Column(columnDefinition = "TEXT")
     private String team_introduction;
 
     private String created_date;
