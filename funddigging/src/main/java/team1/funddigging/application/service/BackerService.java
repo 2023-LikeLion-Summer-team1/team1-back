@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class BackerService {
 
     private final FundingRepository fundingRepository;
-    private final CategoryRepository categoryRepository;
     private final RoomRepository roomRepository;
     private final UserRepository userRepository;
     private final BackerRepository backerRepository;
